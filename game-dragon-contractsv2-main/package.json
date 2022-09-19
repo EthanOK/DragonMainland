@@ -1,0 +1,41 @@
+{
+  "name": "hardhat-deploy-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomiclabs/hardhat-solhint": "^2.0.0",
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^8.2.3",
+    "@types/node": "^16.3.3",
+    "chai": "^4.3.4",
+    "chai-ethers": "^0.0.1",
+    "dotenv": "^10.0.0",
+    "ethers": "^5.4.1",
+    "hardhat": "^2.4.3",
+    "hardhat-contract-sizer": "^2.1.1",
+    "hardhat-deploy": "^0.8.11",
+    "hardhat-deploy-ethers": "^0.3.0-beta.10",
+    "hardhat-docgen": "^1.1.2",
+    "hardhat-gas-reporter": "^1.0.4",
+    "mocha": "^9.0.2",
+    "prettier": "^2.4.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.18",
+    "solhint": "^3.3.6",
+    "solhint-plugin-prettier": "^0.0.5",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.3.2",
+    "global": "^4.4.0"
+  },
+  "scripts": {
+    "compile": "hardhat compile",
+    "sizer": "hardhat size-contracts",
+    "docgen": "hardhat docgen",
+    "bsctest:deploy": "hardhat --network bsctest deploy",
+    "bscmain:deploy": "hardhat --network bscmain deploy",
+    "matictest:deploy": "hardhat --network matictest deploy"
+  }
+}
