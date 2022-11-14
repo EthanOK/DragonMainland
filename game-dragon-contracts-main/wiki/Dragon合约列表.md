@@ -1,0 +1,28 @@
+
+## 本地开发（测试）合约
+
+* 龙合约
+
+0xfEEAf17Ce1DD76fc57bd5F816cc33d375656f3D4
+
+* 预售合约
+
+0xD17873FcC0BC182A5E39a6DB0B79ee00F7987e7E
+
+
+
+## 正式（线上）合约
+
+* 龙合约
+
+0x3a70F8292F0053C97c4B394e2fC98389BdE765fb
+
+* 预售合约
+
+0x6fE8F3de6301EadD052bffDAecAa2d9cE1120Bf5
+
+* 龙繁殖合约 12-13 fix繁殖次数同步
+
+0x5f0B883F531ebdb76696dcAC538b4369E07e7Cb6（已暂停）
+
+0x0703E10A1DB1e7E54E8Af448F8dc8961c29dF905（新合约）
