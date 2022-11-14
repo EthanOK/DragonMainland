@@ -1,0 +1,336 @@
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.8.2;
+
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+
+import "./interfaces/IDragonMainToken.sol";
+import "./DragonMetadata.sol";
+import "./DragonTransfer.sol";
+
+/// dragon update contract
+contract DragonUpdateMeta is Ownable, DragonMetadata, DragonTransfer {
+    // talent update
+    event TalentUpdate(
+        address indexed account,
+        uint256 tokenId,
+        uint256 skill,
+        uint256 talent
+    );
+
+    // dragon.tokenId => skillId => bool
+    mapping(uint256 => mapping(uint256 => bool)) public dragonTalentUpdate;
+    uint8 public skillUpdateMax = 3;
+    // dragon.tokenId => skillId => amount
+    mapping(uint256 => mapping(uint256 => uint8)) public dragonSkillUpdate;
+    // dragon.tokenId => skillId (view)
+    mapping(uint256 => uint8) public dragonSkillUpdateView;
+    // dragon.tokenId => attrId => amount
+    mapping(uint256 => mapping(uint256 => uint8)) public dragonAttrUpdate;
+    // dragon.tokenId => attrId (view)
+    mapping(uint256 => uint8) public dragonAttrUpdateView;
+    // weight
+    uint256[5] public attrWeight = [20, 20, 20, 20, 20];
+    uint256[4] public skillWeight = [25, 25, 25, 25];
+
+    function setAttrWeight(uint256[5] memory _weight) external onlyOwner {
+        attrWeight = _weight;
+    }
+
+    function setSkillWeight(uint256[4] memory _weight) external onlyOwner {
+        skillWeight = _weight;
+    }
+
+    function setSkillUpdateMax(uint8 _amount) external onlyOwner {
+        skillUpdateMax = _amount;
+    }
+}
+
+/// dragon update
+// attribute update
+// skill update
+contract DragonUpdate is DragonUpdateMeta {
+    IDragonMainToken dragonToken;
+
+    constructor(address _dragonToken) {
+        require(_dragonToken != address(0), "dragonToken address is zero");
+        dragonToken = IDragonMainToken(_dragonToken);
+    }
+
+    modifier hasTokenId(uint256 _tokenId) {
+        require(
+            dragonToken.ownerOf(_tokenId) != address(0),
+            "tokenId is not existent"
+        );
+        _;
+    }
+
+    function _random(uint256 modVal) internal view returns (uint256) {
+        uint256 rand = uint256(
+            keccak256(
+                abi.encodePacked(
+                    block.timestamp,
+                    block.difficulty,
+                    blockhash(block.number),
+                    block.coinbase
+                )
+            )
+        );
+        return rand % modVal;
+    }
+
+    function _getAttrWeight()
+        internal
+        view
+        returns (uint256[5] memory, uint256)
+    {
+        uint256[5] memory weights = [uint256(0), 0, 0, 0, 0];
+        uint256 weightSum = 0;
+        for (uint256 i = 0; i < attrWeight.length; i++) {
+            if (attrWeight[i] > 0) {
+                weights[i] = attrWeight[i];
+                weightSum += attrWeight[i];
+            }
+        }
+        return (weights, weightSum);
+    }
+
+    function _randomAttr() internal view returns (uint256) {
+        (uint256[5] memory weights, uint256 weightSum) = _getAttrWeight();
+        uint256 rand = _random(weightSum);
+        uint256 randSum = weights[0];
+        uint256 _attrId = 0;
+        for (uint256 i = 0; i < weights.length; i++) {
+            if (randSum >= rand) {
+                _attrId = i + 1;
+                break;
+            } else {
+                randSum += weights[i];
+            }
+        }
+        return _attrId;
+    }
+
+    // attribute update view 5 case
+    // _boneId burn
+    function attributeUpdateView(uint256 _tokenId, uint256 _boneId)
+        external
+        hasTokenId(_tokenId)
+        returns (uint256)
+    {
+        // dragon
+        uint256 _dragonJob = dragonToken.getDragonJob(_tokenId);
+        require(_dragonJob == _eatDragonJob, "dragon job is disaffinity");
+        require(
+            dragonToken.ownerOf(_tokenId) == dragonToken.ownerOf(_eatTokenId) &&
+                dragonToken.ownerOf(_tokenId) == msg.sender,
+            "invalid dragon owner"
+        );
+        dragonToken.burn(_eatTokenId);
+
+        // transfer
+        dmsTransferFrom(msg.sender, address(this), skillDmsAmt);
+        dmpTransferFrom(msg.sender, address(this), skillDmpAmt);
+
+        uint256[4] memory weights = [uint256(0), 0, 0, 0];
+        uint256 weightSum = 0;
+        for (uint256 i = 0; i < skillWeight.length; i++) {
+            if (
+                skillWeight[i] > 0 &&
+                dragonSkillUpdate[_tokenId][i + 1] < skillUpdateMax
+            ) {
+                weights[i] = skillWeight[i];
+                weightSum += skillWeight[i];
+            }
+        }
+
+        uint256 rand = _random(weightSum);
+        uint256 randSum = weights[0];
+        uint256 _skillId = 0;
+        for (uint256 i = 0; i < weights.length; i++) {
+            if (randSum >= rand) {
+                _skillId = i + 1;
+                break;
+            } else {
+                randSum += weights[i];
+            }
+        }
+
+        SkillType _id = SkillType(_skillId);
+        require(uint256(_id) > 0, "incorrect skillId");
+        dragonAttrUpdateView[_tokenId] = uint8(_id);
+
+        return (uint256(1));
+    }
+
+    // attribute update 5case
+    // boneId
+    function attributeUpdate(
+        uint256 _tokenId,
+        uint256 _boneId,
+        uint256 _timestamp,
+        bytes memory _sign
+    ) external hasTokenId(_tokenId) returns (bool) {
+        require(_boneId > 0, "incorrect boneId");
+        uint256 _attrId = _randomAttr();
+        uint256 _value = 0;
+        uint256 _bid = _boneId % 10;
+        // todo value
+        if (_bid == 1) {
+            _value = 1;
+        } else if (_bid == 2) {
+            _value = 5;
+        } else if (_bid == 3) {
+            _value = 10;
+        }
+        require(_value > 0, "incorrect value");
+
+        AttrType _attr = AttrType(_attrId);
+        require(uint256(_attr) > 0, "incorrect attrId");
+
+        uint256 _currAttr = dragonToken.getDragonAttribute(_tokenId, _attrId);
+        dragonToken.setDragonAttribute(
+            _tokenId,
+            _attrId,
+            _currAttr + _value,
+            _timestamp,
+            _sign
+        );
+        return true;
+    }
+
+    // skill update view 4 case
+    // _eatTokenId eat tokenid
+    function skillUpdateView(uint256 _tokenId, uint256 _eatTokenId)
+        external
+        hasTokenId(_tokenId)
+        hasTokenId(_eatTokenId)
+        returns (uint256)
+    {
+        // dragon
+        uint256 _dragonJob = dragonToken.getDragonJob(_tokenId);
+        uint256 _eatDragonJob = dragonToken.getDragonJob(_eatTokenId);
+        require(_dragonJob == _eatDragonJob, "dragon job is disaffinity");
+        require(
+            dragonToken.ownerOf(_tokenId) == dragonToken.ownerOf(_eatTokenId) &&
+                dragonToken.ownerOf(_tokenId) == msg.sender,
+            "invalid dragon owner"
+        );
+        dragonToken.burn(_eatTokenId);
+
+        // transfer
+        dmsTransferFrom(msg.sender, address(this), skillDmsAmt);
+        dmpTransferFrom(msg.sender, address(this), skillDmpAmt);
+
+        uint256[4] memory weights = [uint256(0), 0, 0, 0];
+        uint256 weightSum = 0;
+        for (uint256 i = 0; i < skillWeight.length; i++) {
+            if (
+                skillWeight[i] > 0 &&
+                dragonSkillUpdate[_tokenId][i + 1] < skillUpdateMax
+            ) {
+                weights[i] = skillWeight[i];
+                weightSum += skillWeight[i];
+            }
+        }
+
+        uint256 rand = _random(weightSum);
+        uint256 randSum = weights[0];
+        uint256 _skillId = 0;
+        for (uint256 i = 0; i < weights.length; i++) {
+            if (randSum >= rand) {
+                _skillId = i + 1;
+                break;
+            } else {
+                randSum += weights[i];
+            }
+        }
+
+        SkillType _id = SkillType(_skillId);
+        require(uint256(_id) > 0, "incorrect skillId");
+        dragonSkillUpdateView[_tokenId] = uint8(_id);
+
+        return (uint256(1));
+    }
+
+    // skill update sure 4 case
+    function skillUpdate(
+        uint256 _tokenId,
+        uint256 _timestamp,
+        bytes memory _sign
+    ) external hasTokenId(_tokenId) returns (bool) {
+        uint8 _skillId = dragonSkillUpdateView[_tokenId];
+        require(_skillId > 0, "invalid skillId");
+        require(dragonSkillUpdate[_tokenId][_skillId] <= 3, "skill updated");
+        uint256 _skill = dragonToken.getDragonSkill(_tokenId, _skillId);
+        dragonSkillUpdate[_tokenId][_skillId] += 1;
+
+        dragonToken.setDragonSkill(
+            _tokenId,
+            _skillId,
+            _skill + 1,
+            _timestamp,
+            _sign
+        );
+        delete dragonSkillUpdateView[_tokenId];
+
+        return true;
+    }
+
+    // talent update 1 to 5
+    function talentUpdate(
+        uint256 _tokenId,
+        uint256 _skillId,
+        uint256 _timestamp,
+        bytes memory _sign
+    ) external hasTokenId(_tokenId) returns (bool) {
+        require(_skillId > 0, "skillId invalid");
+        require(
+            dragonTalentUpdate[_tokenId][_skillId] == false,
+            "talent is updated"
+        );
+        require(
+            dragonToken.ownerOf(_tokenId) == msg.sender,
+            "dragon is not owner"
+        );
+
+        // transfer
+        dmsTransferFrom(msg.sender, address(this), talentDmsAmt);
+        dmpTransferFrom(msg.sender, address(this), talentDmpAmt);
+
+        SkillType _id = SkillType(_skillId);
+        require(uint256(_id) > 0, "incorrect skillId");
+
+        (
+            uint256 horn,
+            uint256 ear,
+            uint256 wing,
+            uint256 tail,
+            uint256 talent
+        ) = dragonToken.dragonSkills(_tokenId);
+        uint256 _level = 1;
+        if (_id == SkillType.Horn) {
+            _level = horn;
+        } else if (_id == SkillType.Ear) {
+            _level = ear;
+        } else if (_id == SkillType.Wing) {
+            _level = wing;
+        } else if (_id == SkillType.Tail) {
+            _level = tail;
+        }
+        require(_level >= 3, "skill level too low");
+
+        dragonTalentUpdate[_tokenId][_skillId] = true;
+        dragonToken.setDragonSkill(
+            _tokenId,
+            _skillId,
+            talent + 1,
+            _timestamp,
+            _sign
+        );
+        emit TalentUpdate(msg.sender, _tokenId, _skillId, talent + 1);
+
+        return true;
+    }
+}

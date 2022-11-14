@@ -1,0 +1,708 @@
+{
+  "address": "0x42dA94eE07D6E299898dd96f2496c995b7D78413",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newAddr",
+          "type": "address"
+        }
+      ],
+      "name": "BurnAccount",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "dragonId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "devourDragonId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "skillId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "skillValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "Confirm",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "dragonId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "devourDragonId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "skillId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "skillValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "Devour",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "DmpFee",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "DmsFee",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newLevel",
+          "type": "uint256"
+        }
+      ],
+      "name": "MaxLevel",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "burnAccount",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_dragonId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_timestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_sign",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_signTalent",
+          "type": "bytes"
+        }
+      ],
+      "name": "confirm",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_dragonId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_devourDragonId",
+          "type": "uint256"
+        }
+      ],
+      "name": "devour",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "devourDatas",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "devourDragonId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "skillId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "currValue",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "skillValue",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "state",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "dmpFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "dmpToken",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "dmsFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "dmsToken",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "dragonToken",
+      "outputs": [
+        {
+          "internalType": "contract IDragonToken",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "maxLevel",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "setBurnAccount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setDmpFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setDmsFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_level",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMaxLevel",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unpause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x20c5bec54e28e64b0e19bd1fcd52b9f2f7a5ffe9a0789c21a7bb27b905b51be6",
+  "receipt": {
+    "to": null,
+    "from": "0x5866DF8C896AdfbCec583E1c8bc73665944bD82b",
+    "contractAddress": "0x42dA94eE07D6E299898dd96f2496c995b7D78413",
+    "transactionIndex": 192,
+    "gasUsed": "1867881",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000800800000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000010000000020000000000000000000800000000000001000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000080000000020000000000000000000000000000000000000000000000000",
+    "blockHash": "0x9f501657babea0bff00bcaa0b9fa5e458155a95a0301dc429768659d51dc52b5",
+    "transactionHash": "0x20c5bec54e28e64b0e19bd1fcd52b9f2f7a5ffe9a0789c21a7bb27b905b51be6",
+    "logs": [
+      {
+        "transactionIndex": 192,
+        "blockNumber": 13637964,
+        "transactionHash": "0x20c5bec54e28e64b0e19bd1fcd52b9f2f7a5ffe9a0789c21a7bb27b905b51be6",
+        "address": "0x42dA94eE07D6E299898dd96f2496c995b7D78413",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x0000000000000000000000005866df8c896adfbcec583e1c8bc73665944bd82b"
+        ],
+        "data": "0x",
+        "logIndex": 591,
+        "blockHash": "0x9f501657babea0bff00bcaa0b9fa5e458155a95a0301dc429768659d51dc52b5"
+      }
+    ],
+    "blockNumber": 13637964,
+    "cumulativeGasUsed": "26856520",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "solcInputHash": "c8ae3e3a5a1d0cebf23cc1ac515d0238",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.2+commit.661d1103\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newAddr\",\"type\":\"address\"}],\"name\":\"BurnAccount\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"dragonId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"devourDragonId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"skillId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"skillValue\",\"type\":\"uint256\"}],\"name\":\"Confirm\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"dragonId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"devourDragonId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"skillId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"skillValue\",\"type\":\"uint256\"}],\"name\":\"Devour\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newFee\",\"type\":\"uint256\"}],\"name\":\"DmpFee\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newFee\",\"type\":\"uint256\"}],\"name\":\"DmsFee\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newLevel\",\"type\":\"uint256\"}],\"name\":\"MaxLevel\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"burnAccount\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_dragonId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_timestamp\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_sign\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"_signTalent\",\"type\":\"bytes\"}],\"name\":\"confirm\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_dragonId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_devourDragonId\",\"type\":\"uint256\"}],\"name\":\"devour\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"devourDatas\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"devourDragonId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"skillId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"currValue\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"skillValue\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"state\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"dmpFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"dmpToken\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"dmsFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"dmsToken\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"dragonToken\",\"outputs\":[{\"internalType\":\"contract IDragonToken\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxLevel\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"setBurnAccount\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_fee\",\"type\":\"uint256\"}],\"name\":\"setDmpFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_fee\",\"type\":\"uint256\"}],\"name\":\"setDmsFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_level\",\"type\":\"uint256\"}],\"name\":\"setMaxLevel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"paused()\":{\"details\":\"Returns true if the contract is paused, and false otherwise.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/DragonDevour.sol\":\"DragonDevour\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * By default, the owner account will be the one that deploys the contract. This\\n * can later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the deployer as the initial owner.\\n     */\\n    constructor() {\\n        _setOwner(_msgSender());\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        require(owner() == _msgSender(), \\\"Ownable: caller is not the owner\\\");\\n        _;\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions anymore. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby removing any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _setOwner(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        require(newOwner != address(0), \\\"Ownable: new owner is the zero address\\\");\\n        _setOwner(newOwner);\\n    }\\n\\n    function _setOwner(address newOwner) private {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0x6bb804a310218875e89d12c053e94a13a4607cdf7cc2052f3e52bd32a0dc50a1\",\"license\":\"MIT\"},\"@openzeppelin/contracts/security/Pausable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which allows children to implement an emergency stop\\n * mechanism that can be triggered by an authorized account.\\n *\\n * This module is used through inheritance. It will make available the\\n * modifiers `whenNotPaused` and `whenPaused`, which can be applied to\\n * the functions of your contract. Note that they will not be pausable by\\n * simply including this module, only once the modifiers are put in place.\\n */\\nabstract contract Pausable is Context {\\n    /**\\n     * @dev Emitted when the pause is triggered by `account`.\\n     */\\n    event Paused(address account);\\n\\n    /**\\n     * @dev Emitted when the pause is lifted by `account`.\\n     */\\n    event Unpaused(address account);\\n\\n    bool private _paused;\\n\\n    /**\\n     * @dev Initializes the contract in unpaused state.\\n     */\\n    constructor() {\\n        _paused = false;\\n    }\\n\\n    /**\\n     * @dev Returns true if the contract is paused, and false otherwise.\\n     */\\n    function paused() public view virtual returns (bool) {\\n        return _paused;\\n    }\\n\\n    /**\\n     * @dev Modifier to make a function callable only when the contract is not paused.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must not be paused.\\n     */\\n    modifier whenNotPaused() {\\n        require(!paused(), \\\"Pausable: paused\\\");\\n        _;\\n    }\\n\\n    /**\\n     * @dev Modifier to make a function callable only when the contract is paused.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must be paused.\\n     */\\n    modifier whenPaused() {\\n        require(paused(), \\\"Pausable: not paused\\\");\\n        _;\\n    }\\n\\n    /**\\n     * @dev Triggers stopped state.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must not be paused.\\n     */\\n    function _pause() internal virtual whenNotPaused {\\n        _paused = true;\\n        emit Paused(_msgSender());\\n    }\\n\\n    /**\\n     * @dev Returns to normal state.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must be paused.\\n     */\\n    function _unpause() internal virtual whenPaused {\\n        _paused = false;\\n        emit Unpaused(_msgSender());\\n    }\\n}\\n\",\"keccak256\":\"0xa35b1f2a670cd2a701a52c398032c9fed72df1909fe394d77ceacbf074e8937b\",\"license\":\"MIT\"},\"@openzeppelin/contracts/security/ReentrancyGuard.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Contract module that helps prevent reentrant calls to a function.\\n *\\n * Inheriting from `ReentrancyGuard` will make the {nonReentrant} modifier\\n * available, which can be applied to functions to make sure there are no nested\\n * (reentrant) calls to them.\\n *\\n * Note that because there is a single `nonReentrant` guard, functions marked as\\n * `nonReentrant` may not call one another. This can be worked around by making\\n * those functions `private`, and then adding `external` `nonReentrant` entry\\n * points to them.\\n *\\n * TIP: If you would like to learn more about reentrancy and alternative ways\\n * to protect against it, check out our blog post\\n * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].\\n */\\nabstract contract ReentrancyGuard {\\n    // Booleans are more expensive than uint256 or any type that takes up a full\\n    // word because each write operation emits an extra SLOAD to first read the\\n    // slot's contents, replace the bits taken up by the boolean, and then write\\n    // back. This is the compiler's defense against contract upgrades and\\n    // pointer aliasing, and it cannot be disabled.\\n\\n    // The values being non-zero value makes deployment a bit more expensive,\\n    // but in exchange the refund on every call to nonReentrant will be lower in\\n    // amount. Since refunds are capped to a percentage of the total\\n    // transaction's gas, it is best to keep them low in cases like this one, to\\n    // increase the likelihood of the full refund coming into effect.\\n    uint256 private constant _NOT_ENTERED = 1;\\n    uint256 private constant _ENTERED = 2;\\n\\n    uint256 private _status;\\n\\n    constructor() {\\n        _status = _NOT_ENTERED;\\n    }\\n\\n    /**\\n     * @dev Prevents a contract from calling itself, directly or indirectly.\\n     * Calling a `nonReentrant` function from another `nonReentrant`\\n     * function is not supported. It is possible to prevent this from happening\\n     * by making the `nonReentrant` function external, and make it call a\\n     * `private` function that does the actual work.\\n     */\\n    modifier nonReentrant() {\\n        // On the first call to nonReentrant, _notEntered will be true\\n        require(_status != _ENTERED, \\\"ReentrancyGuard: reentrant call\\\");\\n\\n        // Any calls to nonReentrant after this point will fail\\n        _status = _ENTERED;\\n\\n        _;\\n\\n        // By storing the original value once again, a refund is triggered (see\\n        // https://eips.ethereum.org/EIPS/eip-2200)\\n        _status = _NOT_ENTERED;\\n    }\\n}\\n\",\"keccak256\":\"0x842ccf9a6cd33e17b7acef8372ca42090755217b358fe0c44c98e951ea549d3a\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Returns the amount of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the amount of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves `amount` tokens from the caller's account to `recipient`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address recipient, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Moves `amount` tokens from `sender` to `recipient` using the\\n     * allowance mechanism. `amount` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(\\n        address sender,\\n        address recipient,\\n        uint256 amount\\n    ) external returns (bool);\\n\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n}\\n\",\"keccak256\":\"0x027b891937d20ccf213fdb9c31531574256de774bda99d3a70ecef6e1913ed2a\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n}\\n\",\"keccak256\":\"0x90565a39ae45c80f0468dc96c7b20d0afc3055f344c8203a0c9258239f350b9f\",\"license\":\"MIT\"},\"contracts/DragonDevour.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity >=0.8.2 <0.9.0;\\n\\nimport \\\"@openzeppelin/contracts/token/ERC20/IERC20.sol\\\";\\nimport \\\"@openzeppelin/contracts/security/Pausable.sol\\\";\\nimport \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\nimport \\\"@openzeppelin/contracts/security/ReentrancyGuard.sol\\\";\\n\\n// DMT abi\\ninterface IDragonToken {\\n    struct Metadata {\\n        uint8 job;\\n        uint64 birthTime;\\n        uint64 cooldownTime;\\n        uint256 geneDomi;\\n        uint256 geneRece;\\n        uint256 matronId;\\n        uint256 sireId;\\n        uint16 stage;\\n    }\\n\\n    function dragons(uint256 _tokenId)\\n        external\\n        returns (Metadata calldata data);\\n\\n    function ownerOf(uint256 tokenId) external view returns (address owner);\\n\\n    function burn(uint256 tokenId) external;\\n\\n    function getDragonSkill(uint256 _tokenId, uint256 _skillId)\\n        external\\n        view\\n        returns (uint256 skill, uint256 level);\\n\\n    // dragon skill update\\n    function setDragonSkill(\\n        uint256 _tokenId,\\n        uint256 _skillId,\\n        uint256 _level,\\n        uint256 _timestamp,\\n        bytes memory _sign\\n    ) external returns (bool);\\n}\\n\\nabstract contract DragonDevourBase is Pausable, Ownable {\\n    // burn account event\\n    event BurnAccount(address newAddr);\\n    // maxLevel DmsFee DmpFee\\n    event MaxLevel(uint256 newLevel);\\n    event DmsFee(uint256 newFee);\\n    event DmpFee(uint256 newFee);\\n\\n    // devour event\\n    event Devour(\\n        address indexed account,\\n        uint256 dragonId,\\n        uint256 devourDragonId,\\n        uint256 skillId,\\n        uint256 skillValue\\n    );\\n    // Confirm event\\n    event Confirm(\\n        address indexed account,\\n        uint256 dragonId,\\n        uint256 devourDragonId,\\n        uint256 skillId,\\n        uint256 skillValue\\n    );\\n\\n    struct DevourData {\\n        uint256 devourDragonId;\\n        uint256 skillId;\\n        uint256 currValue;\\n        uint256 skillValue; // currValue + 1\\n        bool state; // confirm need state = true\\n    }\\n\\n    // dragon tokenId => devour data\\n    mapping(uint256 => DevourData) public devourDatas;\\n\\n    // devour max level\\n    uint256 public maxLevel = 4;\\n    uint256 internal constant talentId = 5;\\n\\n    // dms dmp fees\\n    uint256 public dmsFee = 1 ether;\\n    uint256 public dmpFee = 300 ether;\\n\\n    // contract\\n    IERC20 public dmsToken = IERC20(0x9a26e6D24Df036B0b015016D1b55011c19E76C87);\\n    IERC20 public dmpToken = IERC20(0x599107669322B0E72be939331f35A693ba71EBE2);\\n    IDragonToken public dragonToken =\\n        IDragonToken(0x3a70F8292F0053C97c4B394e2fC98389BdE765fb);\\n    address public burnAccount =\\n        address(0xdbCD59927b1D39cB9A01d5C3DbD910300e59d1F2);\\n\\n    // expiration time\\n    uint64 internal constant _expirationTime = 180;\\n\\n    // set devour max level\\n    function setMaxLevel(uint256 _level) external onlyOwner {\\n        require(_level > 0, \\\"invalid devour maxLevel\\\");\\n        maxLevel = _level;\\n        emit MaxLevel(_level);\\n    }\\n\\n    // set burn account address\\n    function setBurnAccount(address _address) external onlyOwner {\\n        require(_address != address(0), \\\"address is zero\\\");\\n        burnAccount = _address;\\n        emit BurnAccount(_address);\\n    }\\n\\n    // set DMS amount\\n    function setDmsFee(uint256 _fee) external onlyOwner {\\n        require(_fee > 0, \\\"invalid dms fee\\\");\\n        dmsFee = _fee;\\n        emit DmsFee(_fee);\\n    }\\n\\n    // set DMP amount\\n    function setDmpFee(uint256 _fee) external onlyOwner {\\n        require(_fee > 0, \\\"invalid dmpFees\\\");\\n        dmpFee = _fee;\\n        emit DmpFee(_fee);\\n    }\\n\\n    function pause() external onlyOwner {\\n        _pause();\\n    }\\n\\n    function unpause() external onlyOwner {\\n        _unpause();\\n    }\\n}\\n\\n// dragon devour dragon\\n// other dragon burn\\n// dms dmp transfer to burn account\\ncontract DragonDevour is Pausable, ReentrancyGuard, DragonDevourBase {\\n    // dragon owner\\n    modifier isOwner(uint256 tokenId) {\\n        require(\\n            dragonToken.ownerOf(tokenId) == msg.sender,\\n            \\\"dragon not belong to owner\\\"\\n        );\\n        _;\\n    }\\n\\n    // dragon devour\\n    // dragon burn & dms dms transfer to burn account\\n    function devour(uint256 _dragonId, uint256 _devourDragonId)\\n        external\\n        whenNotPaused\\n        nonReentrant\\n        isOwner(_dragonId)\\n        isOwner(_devourDragonId)\\n        returns (bool)\\n    {\\n        require(\\n            _dragonId > 0 && _devourDragonId > 0,\\n            \\\"invalid dragonId or devour dragonId\\\"\\n        );\\n        require(\\n            dragonToken.dragons(_dragonId).stage > 0,\\n            \\\"Dragon egg is hatching\\\"\\n        );\\n        require(\\n            dragonToken.dragons(_devourDragonId).stage > 0,\\n            \\\"Dragon egg is hatching\\\"\\n        );\\n\\n        DevourData storage _data = devourDatas[_dragonId];\\n        require(!_data.state, \\\"Please confirm first\\\");\\n\\n        uint256 _skillId = _randomSkillId(_dragonId);\\n        (, uint256 _level) = dragonToken.getDragonSkill(_dragonId, _skillId);\\n        require(_level + 1 <= maxLevel, \\\"Dragon level max\\\");\\n\\n        // spend DMS DMP\\n        require(\\n            dmsToken.balanceOf(msg.sender) >= dmsFee,\\n            \\\"Your DMS balance is insufficient\\\"\\n        );\\n        require(\\n            dmpToken.balanceOf(msg.sender) >= dmpFee,\\n            \\\"Your DMP balance is insufficient\\\"\\n        );\\n        require(\\n            dmsToken.transferFrom(msg.sender, burnAccount, dmsFee),\\n            \\\"DMS transfer failure\\\"\\n        );\\n        require(\\n            dmpToken.transferFrom(msg.sender, burnAccount, dmpFee),\\n            \\\"DMP transfer failure\\\"\\n        );\\n\\n        // burn dragon\\n        dragonToken.burn(_devourDragonId);\\n\\n        // change data\\n        _data.state = true;\\n        _data.devourDragonId = _devourDragonId;\\n        _data.skillId = _skillId;\\n        _data.currValue = _level;\\n        _data.skillValue = _level + 1;\\n\\n        emit Devour(\\n            msg.sender,\\n            _dragonId,\\n            _devourDragonId,\\n            _skillId,\\n            _data.skillValue\\n        );\\n        return true;\\n    }\\n\\n    function _randomSkillId(uint256 _dragonId) private view returns (uint256) {\\n        uint256[] memory _skillIds;\\n        for (uint256 id = 1; id < maxLevel; id++) {\\n            (, uint256 _currLevel) = dragonToken.getDragonSkill(_dragonId, id);\\n            if (_currLevel < maxLevel) {\\n                if (id == 1) {\\n                    _skillIds[_skillIds.length] = id;\\n                } else if (id == 2) {\\n                    _skillIds[_skillIds.length] = id;\\n                } else if (id == 3) {\\n                    _skillIds[_skillIds.length] = id;\\n                } else if (id == 4) {\\n                    _skillIds[_skillIds.length] = id;\\n                }\\n            }\\n        }\\n        // get skillId, addValue=1\\n        return _skillIds[_random(_skillIds.length)];\\n    }\\n\\n    // confirm devour\\n    function confirm(\\n        uint256 _dragonId,\\n        uint256 _timestamp,\\n        bytes memory _sign,\\n        bytes memory _signTalent\\n    ) external whenNotPaused nonReentrant isOwner(_dragonId) returns (bool) {\\n        require(\\n            _timestamp + _expirationTime >= block.timestamp,\\n            \\\"expiration time\\\"\\n        );\\n        DevourData memory _data = devourDatas[_dragonId];\\n        require(_data.state, \\\"Please devour first\\\");\\n\\n        // update skill\\n        require(\\n            dragonToken.setDragonSkill(\\n                _dragonId,\\n                _data.skillId,\\n                _data.skillValue,\\n                _timestamp,\\n                _sign\\n            ),\\n            \\\"Failed to promote skill\\\"\\n        );\\n        // talent upgrade\\n        if (_data.skillValue == maxLevel) {\\n            (, uint256 _talentLevel) = dragonToken.getDragonSkill(\\n                _dragonId,\\n                talentId\\n            );\\n            // talentLevel max level = 5\\n            if (_talentLevel < maxLevel + 1) {\\n                require(\\n                    dragonToken.setDragonSkill(\\n                        _dragonId,\\n                        talentId,\\n                        _talentLevel + 1,\\n                        _timestamp,\\n                        _signTalent\\n                    ),\\n                    \\\"Failed to promote skill\\\"\\n                );\\n            }\\n        }\\n\\n        emit Confirm(\\n            msg.sender,\\n            _dragonId,\\n            _data.devourDragonId,\\n            _data.skillId,\\n            _data.skillValue\\n        );\\n\\n        delete devourDatas[_dragonId];\\n\\n        return true;\\n    }\\n\\n    // get random numbers\\n    function _random(uint256 _modulus) private view returns (uint256) {\\n        uint256 rand = uint256(\\n            keccak256(\\n                abi.encodePacked(\\n                    block.difficulty +\\n                        uint256(keccak256(abi.encodePacked(block.coinbase))) /\\n                        block.timestamp +\\n                        block.gaslimit +\\n                        uint256(keccak256(abi.encodePacked(msg.sender))) /\\n                        block.timestamp +\\n                        block.number\\n                )\\n            )\\n        );\\n        return rand % _modulus;\\n    }\\n}\\n\",\"keccak256\":\"0xe83b2b4604f003c9c41ebd8d7df5940c6b2ca3dff55c9f4ece514b0a2dedb7a1\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405260048055670de0b6b3a7640000600555681043561a8829300000600655600780546001600160a01b0319908116739a26e6d24df036b0b015016d1b55011c19e76c871790915560088054821673599107669322b0e72be939331f35a693ba71ebe2179055600980548216733a70f8292f0053c97c4b394e2fc98389bde765fb179055600a805490911673dbcd59927b1d39cb9a01d5c3dbd910300e59d1f21790553480156100b157600080fd5b506000805460ff19169055600180556100c9336100ce565b610120565b600280546001600160a01b038381166001600160a01b0319831681179093556040519116919082907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a35050565b611d5a8061012f6000396000f3fe608060405234801561001057600080fd5b506004361061012c5760003560e01c80638456cb59116100ad578063b7100c4411610071578063b7100c4414610248578063c12512121461025b578063c87281cc146102c6578063cc06c359146102d9578063f2fde38b146102e25761012c565b80638456cb59146102005780638da5cb5b14610208578063903ac655146102195780639b6deaf61461022c578063a41737651461023f5761012c565b80633f4ba83a116100f45780633f4ba83a146101b35780635c975abb146101bb578063715018a6146101d2578063721e7154146101da5780637dc25ecf146101ed5761012c565b80630e42323b146101315780632c25ade514610161578063327b32b814610176578063344f1ba5146101895780633a2098481461019c575b600080fd5b600954610144906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b61017461016f366004611969565b6102f5565b005b600a54610144906001600160a01b031681565b610174610197366004611a53565b6103c5565b6101a560055481565b604051908152602001610158565b610174610474565b60005460ff165b6040519015158152602001610158565b6101746104a8565b600854610144906001600160a01b031681565b6101c26101fb366004611ac7565b6104dc565b6101746109d4565b6002546001600160a01b0316610144565b600754610144906001600160a01b031681565b61017461023a366004611a53565b610a06565b6101a560065481565b610174610256366004611a53565b610aa7565b61029c610269366004611a53565b60036020819052600091825260409091208054600182015460028301549383015460049093015491939092909160ff1685565b6040805195865260208601949094529284019190915260608301521515608082015260a001610158565b6101c26102d4366004611a83565b610b48565b6101a560045481565b6101746102f0366004611969565b611485565b6002546001600160a01b031633146103285760405162461bcd60e51b815260040161031f90611b9c565b60405180910390fd5b6001600160a01b0381166103705760405162461bcd60e51b815260206004820152600f60248201526e61646472657373206973207a65726f60881b604482015260640161031f565b600a80546001600160a01b0319166001600160a01b0383169081179091556040519081527f1481970214352635336fa2097c82f02314e6029a1553be29dc045cebdf5eacc8906020015b60405180910390a150565b6002546001600160a01b031633146103ef5760405162461bcd60e51b815260040161031f90611b9c565b6000811161043f5760405162461bcd60e51b815260206004820152601760248201527f696e76616c6964206465766f7572206d61784c6576656c000000000000000000604482015260640161031f565b60048190556040518181527f6fb77064c357242637b711a88342615615fa1bb1a2d8cab4c930f6f4d580d65a906020016103ba565b6002546001600160a01b0316331461049e5760405162461bcd60e51b815260040161031f90611b9c565b6104a6611520565b565b6002546001600160a01b031633146104d25760405162461bcd60e51b815260040161031f90611b9c565b6104a660006115b3565b6000805460ff16156105005760405162461bcd60e51b815260040161031f90611b72565b600260015414156105535760405162461bcd60e51b815260206004820152601f60248201527f5265656e7472616e637947756172643a207265656e7472616e742063616c6c00604482015260640161031f565b60026001556009546040516331a9108f60e11b815260048101879052869133916001600160a01b0390911690636352211e9060240160206040518083038186803b1580156105a057600080fd5b505afa1580156105b4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105d89190611985565b6001600160a01b0316146105fe5760405162461bcd60e51b815260040161031f90611b3b565b4261060a60b487611c72565b101561064a5760405162461bcd60e51b815260206004820152600f60248201526e65787069726174696f6e2074696d6560881b604482015260640161031f565b600086815260036020818152604092839020835160a0810185528154815260018201549281019290925260028101549382019390935290820154606082015260049091015460ff161515608082018190526106dd5760405162461bcd60e51b8152602060048201526013602482015272141b19585cd94819195d9bdd5c88199a5c9cdd606a1b604482015260640161031f565b600954602082015160608301516040516367bd7c4b60e01b81526001600160a01b03909316926367bd7c4b9261071b928c928c908c90600401611bd1565b602060405180830381600087803b15801561073557600080fd5b505af1158015610749573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061076d91906119a1565b6107b35760405162461bcd60e51b815260206004820152601760248201527611985a5b1959081d1bc81c1c9bdb5bdd19481cdada5b1b604a1b604482015260640161031f565b60045481606001511415610938576009546040516302464b9360e41b815260048101899052600560248201526000916001600160a01b031690632464b93090604401604080518083038186803b15801561080c57600080fd5b505afa158015610820573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906108449190611aa4565b91505060045460016108569190611c72565b811015610936576009546001600160a01b03166367bd7c4b89600561087c856001611c72565b8b8a6040518663ffffffff1660e01b815260040161089e959493929190611bd1565b602060405180830381600087803b1580156108b857600080fd5b505af11580156108cc573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906108f091906119a1565b6109365760405162461bcd60e51b815260206004820152601760248201527611985a5b1959081d1bc81c1c9bdb5bdd19481cdada5b1b604a1b604482015260640161031f565b505b80516020820151606083015160405133937f9e11bbc423b044d711ea58e9d3abc7dce9bc7756f366866d424ce5a9ed1f41689361098a938d845260208401929092526040830152606082015260800190565b60405180910390a2505050600093845250506003602081905260408320838155600180820185905560028201859055918101939093556004909201805460ff191690555080805590565b6002546001600160a01b031633146109fe5760405162461bcd60e51b815260040161031f90611b9c565b6104a6611605565b6002546001600160a01b03163314610a305760405162461bcd60e51b815260040161031f90611b9c565b60008111610a725760405162461bcd60e51b815260206004820152600f60248201526e696e76616c696420646d732066656560881b604482015260640161031f565b60058190556040518181527fe2ac0e69c6fa3bf87077e870a5b63a3ec13fb824aa4755f6cc8bc46e4894fad5906020016103ba565b6002546001600160a01b03163314610ad15760405162461bcd60e51b815260040161031f90611b9c565b60008111610b135760405162461bcd60e51b815260206004820152600f60248201526e696e76616c696420646d704665657360881b604482015260640161031f565b60068190556040518181527f47619c396a197f83869c3f8bdabb870ecda07a3663d674518eba0ae6c3db7547906020016103ba565b6000805460ff1615610b6c5760405162461bcd60e51b815260040161031f90611b72565b60026001541415610bbf5760405162461bcd60e51b815260206004820152601f60248201527f5265656e7472616e637947756172643a207265656e7472616e742063616c6c00604482015260640161031f565b60026001556009546040516331a9108f60e11b815260048101859052849133916001600160a01b0390911690636352211e9060240160206040518083038186803b158015610c0c57600080fd5b505afa158015610c20573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c449190611985565b6001600160a01b031614610c6a5760405162461bcd60e51b815260040161031f90611b3b565b6009546040516331a9108f60e11b815260048101859052849133916001600160a01b0390911690636352211e9060240160206040518083038186803b158015610cb257600080fd5b505afa158015610cc6573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610cea9190611985565b6001600160a01b031614610d105760405162461bcd60e51b815260040161031f90611b3b565b600085118015610d205750600084115b610d785760405162461bcd60e51b815260206004820152602360248201527f696e76616c696420647261676f6e4964206f72206465766f757220647261676f6044820152621b925960ea1b606482015260840161031f565b60095460405163d2a59d6960e01b8152600481018790526000916001600160a01b03169063d2a59d699060240161010060405180830381600087803b158015610dc057600080fd5b505af1158015610dd4573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610df891906119c1565b60e0015161ffff1611610e465760405162461bcd60e51b8152602060048201526016602482015275447261676f6e20656767206973206861746368696e6760501b604482015260640161031f565b60095460405163d2a59d6960e01b8152600481018690526000916001600160a01b03169063d2a59d699060240161010060405180830381600087803b158015610e8e57600080fd5b505af1158015610ea2573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610ec691906119c1565b60e0015161ffff1611610f145760405162461bcd60e51b8152602060048201526016602482015275447261676f6e20656767206973206861746368696e6760501b604482015260640161031f565b6000858152600360205260409020600481015460ff1615610f6e5760405162461bcd60e51b8152602060048201526014602482015273141b19585cd94818dbdb999a5c9b48199a5c9cdd60621b604482015260640161031f565b6000610f798761165d565b6009546040516302464b9360e41b8152600481018a9052602481018390529192506000916001600160a01b0390911690632464b93090604401604080518083038186803b158015610fc957600080fd5b505afa158015610fdd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906110019190611aa4565b9150506004548160016110149190611c72565b11156110555760405162461bcd60e51b815260206004820152601060248201526f088e4c2cededc40d8caeccad840dac2f60831b604482015260640161031f565b6005546007546040516370a0823160e01b81523360048201526001600160a01b03909116906370a082319060240160206040518083038186803b15801561109b57600080fd5b505afa1580156110af573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906110d39190611a6b565b10156111215760405162461bcd60e51b815260206004820181905260248201527f596f757220444d532062616c616e636520697320696e73756666696369656e74604482015260640161031f565b6006546008546040516370a0823160e01b81523360048201526001600160a01b03909116906370a082319060240160206040518083038186803b15801561116757600080fd5b505afa15801561117b573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061119f9190611a6b565b10156111ed5760405162461bcd60e51b815260206004820181905260248201527f596f757220444d502062616c616e636520697320696e73756666696369656e74604482015260640161031f565b600754600a546005546040516323b872dd60e01b81523360048201526001600160a01b03928316602482015260448101919091529116906323b872dd90606401602060405180830381600087803b15801561124757600080fd5b505af115801561125b573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061127f91906119a1565b6112c25760405162461bcd60e51b8152602060048201526014602482015273444d53207472616e73666572206661696c75726560601b604482015260640161031f565b600854600a546006546040516323b872dd60e01b81523360048201526001600160a01b03928316602482015260448101919091529116906323b872dd90606401602060405180830381600087803b15801561131c57600080fd5b505af1158015611330573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061135491906119a1565b6113975760405162461bcd60e51b8152602060048201526014602482015273444d50207472616e73666572206661696c75726560601b604482015260640161031f565b600954604051630852cd8d60e31b8152600481018990526001600160a01b03909116906342966c6890602401600060405180830381600087803b1580156113dd57600080fd5b505af11580156113f1573d6000803e3d6000fd5b50505060048401805460ff191660019081179091558885558481018490556002850183905561142291508290611c72565b60038401819055604080518a8152602081018a9052908101849052606081019190915233907f7ddc878e8552ebe8720409c1b260e7a578887431898dc7df9660a475dcc984dc9060800160405180910390a2505060018080559695505050505050565b6002546001600160a01b031633146114af5760405162461bcd60e51b815260040161031f90611b9c565b6001600160a01b0381166115145760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b606482015260840161031f565b61151d816115b3565b50565b60005460ff166115695760405162461bcd60e51b815260206004820152601460248201527314185d5cd8589b194e881b9bdd081c185d5cd95960621b604482015260640161031f565b6000805460ff191690557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa335b6040516001600160a01b03909116815260200160405180910390a1565b600280546001600160a01b038381166001600160a01b0319831681179093556040519116919082907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a35050565b60005460ff16156116285760405162461bcd60e51b815260040161031f90611b72565b6000805460ff191660011790557f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a2586115963390565b6000606060015b6004548110156117a5576009546040516302464b9360e41b815260048101869052602481018390526000916001600160a01b031690632464b93090604401604080518083038186803b1580156116b957600080fd5b505afa1580156116cd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906116f19190611aa4565b91505060045481101561179257816001141561172357825182908490634e487b7160e01b600052603260045260246000fd5b816002141561174857825182908490634e487b7160e01b600052603260045260246000fd5b816003141561176d57825182908490634e487b7160e01b600052603260045260246000fd5b816004141561179257825182908490634e487b7160e01b600052603260045260246000fd5b508061179d81611c9e565b915050611664565b50806117b182516117e0565b815181106117cf57634e487b7160e01b600052603260045260246000fd5b60200260200101519150505b919050565b6040516bffffffffffffffffffffffff193360601b1660208201526000908190439042906034016040516020818303038152906040528051906020012060001c61182a9190611c8a565b6040516bffffffffffffffffffffffff194160601b166020820152459042906034016040516020818303038152906040528051906020012060001c61186f9190611c8a565b6118799044611c72565b6118839190611c72565b61188d9190611c72565b6118979190611c72565b6040516020016118a991815260200190565b60408051601f19818403018152919052805160209091012090506118cd8382611cb9565b9392505050565b600082601f8301126118e4578081fd5b813567ffffffffffffffff8111156118fe576118fe611cf9565b611911601f8201601f1916602001611c41565b818152846020838601011115611925578283fd5b816020850160208301379081016020019190915292915050565b805161ffff811681146117db57600080fd5b805167ffffffffffffffff811681146117db57600080fd5b60006020828403121561197a578081fd5b81356118cd81611d0f565b600060208284031215611996578081fd5b81516118cd81611d0f565b6000602082840312156119b2578081fd5b815180151581146118cd578182fd5b60006101008083850312156119d4578182fd5b6119dd81611c41565b9050825160ff811681146119ef578283fd5b81526119fd60208401611951565b6020820152611a0e60408401611951565b6040820152606083015160608201526080830151608082015260a083015160a082015260c083015160c0820152611a4760e0840161193f565b60e08201529392505050565b600060208284031215611a64578081fd5b5035919050565b600060208284031215611a7c578081fd5b5051919050565b60008060408385031215611a95578081fd5b50508035926020909101359150565b60008060408385031215611ab6578182fd5b505080516020909101519092909150565b60008060008060808587031215611adc578182fd5b8435935060208501359250604085013567ffffffffffffffff80821115611b01578384fd5b611b0d888389016118d4565b93506060870135915080821115611b22578283fd5b50611b2f878288016118d4565b91505092959194509250565b6020808252601a908201527f647261676f6e206e6f742062656c6f6e6720746f206f776e6572000000000000604082015260600190565b60208082526010908201526f14185d5cd8589b194e881c185d5cd95960821b604082015260600190565b6020808252818101527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604082015260600190565b60008682526020868184015285604084015284606084015260a0608084015283518060a0850152825b81811015611c165785810183015185820160c001528201611bfa565b81811115611c27578360c083870101525b50601f01601f19169290920160c001979650505050505050565b604051601f8201601f1916810167ffffffffffffffff81118282101715611c6a57611c6a611cf9565b604052919050565b60008219821115611c8557611c85611ccd565b500190565b600082611c9957611c99611ce3565b500490565b6000600019821415611cb257611cb2611ccd565b5060010190565b600082611cc857611cc8611ce3565b500690565b634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052601260045260246000fd5b634e487b7160e01b600052604160045260246000fd5b6001600160a01b038116811461151d57600080fdfea26469706673582212209b71bb2db4b395d05e605f4c1bdeb3147360e5a8269f1684673c0b517864078e64736f6c63430008020033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061012c5760003560e01c80638456cb59116100ad578063b7100c4411610071578063b7100c4414610248578063c12512121461025b578063c87281cc146102c6578063cc06c359146102d9578063f2fde38b146102e25761012c565b80638456cb59146102005780638da5cb5b14610208578063903ac655146102195780639b6deaf61461022c578063a41737651461023f5761012c565b80633f4ba83a116100f45780633f4ba83a146101b35780635c975abb146101bb578063715018a6146101d2578063721e7154146101da5780637dc25ecf146101ed5761012c565b80630e42323b146101315780632c25ade514610161578063327b32b814610176578063344f1ba5146101895780633a2098481461019c575b600080fd5b600954610144906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b61017461016f366004611969565b6102f5565b005b600a54610144906001600160a01b031681565b610174610197366004611a53565b6103c5565b6101a560055481565b604051908152602001610158565b610174610474565b60005460ff165b6040519015158152602001610158565b6101746104a8565b600854610144906001600160a01b031681565b6101c26101fb366004611ac7565b6104dc565b6101746109d4565b6002546001600160a01b0316610144565b600754610144906001600160a01b031681565b61017461023a366004611a53565b610a06565b6101a560065481565b610174610256366004611a53565b610aa7565b61029c610269366004611a53565b60036020819052600091825260409091208054600182015460028301549383015460049093015491939092909160ff1685565b6040805195865260208601949094529284019190915260608301521515608082015260a001610158565b6101c26102d4366004611a83565b610b48565b6101a560045481565b6101746102f0366004611969565b611485565b6002546001600160a01b031633146103285760405162461bcd60e51b815260040161031f90611b9c565b60405180910390fd5b6001600160a01b0381166103705760405162461bcd60e51b815260206004820152600f60248201526e61646472657373206973207a65726f60881b604482015260640161031f565b600a80546001600160a01b0319166001600160a01b0383169081179091556040519081527f1481970214352635336fa2097c82f02314e6029a1553be29dc045cebdf5eacc8906020015b60405180910390a150565b6002546001600160a01b031633146103ef5760405162461bcd60e51b815260040161031f90611b9c565b6000811161043f5760405162461bcd60e51b815260206004820152601760248201527f696e76616c6964206465766f7572206d61784c6576656c000000000000000000604482015260640161031f565b60048190556040518181527f6fb77064c357242637b711a88342615615fa1bb1a2d8cab4c930f6f4d580d65a906020016103ba565b6002546001600160a01b0316331461049e5760405162461bcd60e51b815260040161031f90611b9c565b6104a6611520565b565b6002546001600160a01b031633146104d25760405162461bcd60e51b815260040161031f90611b9c565b6104a660006115b3565b6000805460ff16156105005760405162461bcd60e51b815260040161031f90611b72565b600260015414156105535760405162461bcd60e51b815260206004820152601f60248201527f5265656e7472616e637947756172643a207265656e7472616e742063616c6c00604482015260640161031f565b60026001556009546040516331a9108f60e11b815260048101879052869133916001600160a01b0390911690636352211e9060240160206040518083038186803b1580156105a057600080fd5b505afa1580156105b4573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105d89190611985565b6001600160a01b0316146105fe5760405162461bcd60e51b815260040161031f90611b3b565b4261060a60b487611c72565b101561064a5760405162461bcd60e51b815260206004820152600f60248201526e65787069726174696f6e2074696d6560881b604482015260640161031f565b600086815260036020818152604092839020835160a0810185528154815260018201549281019290925260028101549382019390935290820154606082015260049091015460ff161515608082018190526106dd5760405162461bcd60e51b8152602060048201526013602482015272141b19585cd94819195d9bdd5c88199a5c9cdd606a1b604482015260640161031f565b600954602082015160608301516040516367bd7c4b60e01b81526001600160a01b03909316926367bd7c4b9261071b928c928c908c90600401611bd1565b602060405180830381600087803b15801561073557600080fd5b505af1158015610749573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061076d91906119a1565b6107b35760405162461bcd60e51b815260206004820152601760248201527611985a5b1959081d1bc81c1c9bdb5bdd19481cdada5b1b604a1b604482015260640161031f565b60045481606001511415610938576009546040516302464b9360e41b815260048101899052600560248201526000916001600160a01b031690632464b93090604401604080518083038186803b15801561080c57600080fd5b505afa158015610820573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906108449190611aa4565b91505060045460016108569190611c72565b811015610936576009546001600160a01b03166367bd7c4b89600561087c856001611c72565b8b8a6040518663ffffffff1660e01b815260040161089e959493929190611bd1565b602060405180830381600087803b1580156108b857600080fd5b505af11580156108cc573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906108f091906119a1565b6109365760405162461bcd60e51b815260206004820152601760248201527611985a5b1959081d1bc81c1c9bdb5bdd19481cdada5b1b604a1b604482015260640161031f565b505b80516020820151606083015160405133937f9e11bbc423b044d711ea58e9d3abc7dce9bc7756f366866d424ce5a9ed1f41689361098a938d845260208401929092526040830152606082015260800190565b60405180910390a2505050600093845250506003602081905260408320838155600180820185905560028201859055918101939093556004909201805460ff191690555080805590565b6002546001600160a01b031633146109fe5760405162461bcd60e51b815260040161031f90611b9c565b6104a6611605565b6002546001600160a01b03163314610a305760405162461bcd60e51b815260040161031f90611b9c565b60008111610a725760405162461bcd60e51b815260206004820152600f60248201526e696e76616c696420646d732066656560881b604482015260640161031f565b60058190556040518181527fe2ac0e69c6fa3bf87077e870a5b63a3ec13fb824aa4755f6cc8bc46e4894fad5906020016103ba565b6002546001600160a01b03163314610ad15760405162461bcd60e51b815260040161031f90611b9c565b60008111610b135760405162461bcd60e51b815260206004820152600f60248201526e696e76616c696420646d704665657360881b604482015260640161031f565b60068190556040518181527f47619c396a197f83869c3f8bdabb870ecda07a3663d674518eba0ae6c3db7547906020016103ba565b6000805460ff1615610b6c5760405162461bcd60e51b815260040161031f90611b72565b60026001541415610bbf5760405162461bcd60e51b815260206004820152601f60248201527f5265656e7472616e637947756172643a207265656e7472616e742063616c6c00604482015260640161031f565b60026001556009546040516331a9108f60e11b815260048101859052849133916001600160a01b0390911690636352211e9060240160206040518083038186803b158015610c0c57600080fd5b505afa158015610c20573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c449190611985565b6001600160a01b031614610c6a5760405162461bcd60e51b815260040161031f90611b3b565b6009546040516331a9108f60e11b815260048101859052849133916001600160a01b0390911690636352211e9060240160206040518083038186803b158015610cb257600080fd5b505afa158015610cc6573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610cea9190611985565b6001600160a01b031614610d105760405162461bcd60e51b815260040161031f90611b3b565b600085118015610d205750600084115b610d785760405162461bcd60e51b815260206004820152602360248201527f696e76616c696420647261676f6e4964206f72206465766f757220647261676f6044820152621b925960ea1b606482015260840161031f565b60095460405163d2a59d6960e01b8152600481018790526000916001600160a01b03169063d2a59d699060240161010060405180830381600087803b158015610dc057600080fd5b505af1158015610dd4573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610df891906119c1565b60e0015161ffff1611610e465760405162461bcd60e51b8152602060048201526016602482015275447261676f6e20656767206973206861746368696e6760501b604482015260640161031f565b60095460405163d2a59d6960e01b8152600481018690526000916001600160a01b03169063d2a59d699060240161010060405180830381600087803b158015610e8e57600080fd5b505af1158015610ea2573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610ec691906119c1565b60e0015161ffff1611610f145760405162461bcd60e51b8152602060048201526016602482015275447261676f6e20656767206973206861746368696e6760501b604482015260640161031f565b6000858152600360205260409020600481015460ff1615610f6e5760405162461bcd60e51b8152602060048201526014602482015273141b19585cd94818dbdb999a5c9b48199a5c9cdd60621b604482015260640161031f565b6000610f798761165d565b6009546040516302464b9360e41b8152600481018a9052602481018390529192506000916001600160a01b0390911690632464b93090604401604080518083038186803b158015610fc957600080fd5b505afa158015610fdd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906110019190611aa4565b9150506004548160016110149190611c72565b11156110555760405162461bcd60e51b815260206004820152601060248201526f088e4c2cededc40d8caeccad840dac2f60831b604482015260640161031f565b6005546007546040516370a0823160e01b81523360048201526001600160a01b03909116906370a082319060240160206040518083038186803b15801561109b57600080fd5b505afa1580156110af573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906110d39190611a6b565b10156111215760405162461bcd60e51b815260206004820181905260248201527f596f757220444d532062616c616e636520697320696e73756666696369656e74604482015260640161031f565b6006546008546040516370a0823160e01b81523360048201526001600160a01b03909116906370a082319060240160206040518083038186803b15801561116757600080fd5b505afa15801561117b573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061119f9190611a6b565b10156111ed5760405162461bcd60e51b815260206004820181905260248201527f596f757220444d502062616c616e636520697320696e73756666696369656e74604482015260640161031f565b600754600a546005546040516323b872dd60e01b81523360048201526001600160a01b03928316602482015260448101919091529116906323b872dd90606401602060405180830381600087803b15801561124757600080fd5b505af115801561125b573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061127f91906119a1565b6112c25760405162461bcd60e51b8152602060048201526014602482015273444d53207472616e73666572206661696c75726560601b604482015260640161031f565b600854600a546006546040516323b872dd60e01b81523360048201526001600160a01b03928316602482015260448101919091529116906323b872dd90606401602060405180830381600087803b15801561131c57600080fd5b505af1158015611330573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061135491906119a1565b6113975760405162461bcd60e51b8152602060048201526014602482015273444d50207472616e73666572206661696c75726560601b604482015260640161031f565b600954604051630852cd8d60e31b8152600481018990526001600160a01b03909116906342966c6890602401600060405180830381600087803b1580156113dd57600080fd5b505af11580156113f1573d6000803e3d6000fd5b50505060048401805460ff191660019081179091558885558481018490556002850183905561142291508290611c72565b60038401819055604080518a8152602081018a9052908101849052606081019190915233907f7ddc878e8552ebe8720409c1b260e7a578887431898dc7df9660a475dcc984dc9060800160405180910390a2505060018080559695505050505050565b6002546001600160a01b031633146114af5760405162461bcd60e51b815260040161031f90611b9c565b6001600160a01b0381166115145760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b606482015260840161031f565b61151d816115b3565b50565b60005460ff166115695760405162461bcd60e51b815260206004820152601460248201527314185d5cd8589b194e881b9bdd081c185d5cd95960621b604482015260640161031f565b6000805460ff191690557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa335b6040516001600160a01b03909116815260200160405180910390a1565b600280546001600160a01b038381166001600160a01b0319831681179093556040519116919082907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a35050565b60005460ff16156116285760405162461bcd60e51b815260040161031f90611b72565b6000805460ff191660011790557f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a2586115963390565b6000606060015b6004548110156117a5576009546040516302464b9360e41b815260048101869052602481018390526000916001600160a01b031690632464b93090604401604080518083038186803b1580156116b957600080fd5b505afa1580156116cd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906116f19190611aa4565b91505060045481101561179257816001141561172357825182908490634e487b7160e01b600052603260045260246000fd5b816002141561174857825182908490634e487b7160e01b600052603260045260246000fd5b816003141561176d57825182908490634e487b7160e01b600052603260045260246000fd5b816004141561179257825182908490634e487b7160e01b600052603260045260246000fd5b508061179d81611c9e565b915050611664565b50806117b182516117e0565b815181106117cf57634e487b7160e01b600052603260045260246000fd5b60200260200101519150505b919050565b6040516bffffffffffffffffffffffff193360601b1660208201526000908190439042906034016040516020818303038152906040528051906020012060001c61182a9190611c8a565b6040516bffffffffffffffffffffffff194160601b166020820152459042906034016040516020818303038152906040528051906020012060001c61186f9190611c8a565b6118799044611c72565b6118839190611c72565b61188d9190611c72565b6118979190611c72565b6040516020016118a991815260200190565b60408051601f19818403018152919052805160209091012090506118cd8382611cb9565b9392505050565b600082601f8301126118e4578081fd5b813567ffffffffffffffff8111156118fe576118fe611cf9565b611911601f8201601f1916602001611c41565b818152846020838601011115611925578283fd5b816020850160208301379081016020019190915292915050565b805161ffff811681146117db57600080fd5b805167ffffffffffffffff811681146117db57600080fd5b60006020828403121561197a578081fd5b81356118cd81611d0f565b600060208284031215611996578081fd5b81516118cd81611d0f565b6000602082840312156119b2578081fd5b815180151581146118cd578182fd5b60006101008083850312156119d4578182fd5b6119dd81611c41565b9050825160ff811681146119ef578283fd5b81526119fd60208401611951565b6020820152611a0e60408401611951565b6040820152606083015160608201526080830151608082015260a083015160a082015260c083015160c0820152611a4760e0840161193f565b60e08201529392505050565b600060208284031215611a64578081fd5b5035919050565b600060208284031215611a7c578081fd5b5051919050565b60008060408385031215611a95578081fd5b50508035926020909101359150565b60008060408385031215611ab6578182fd5b505080516020909101519092909150565b60008060008060808587031215611adc578182fd5b8435935060208501359250604085013567ffffffffffffffff80821115611b01578384fd5b611b0d888389016118d4565b93506060870135915080821115611b22578283fd5b50611b2f878288016118d4565b91505092959194509250565b6020808252601a908201527f647261676f6e206e6f742062656c6f6e6720746f206f776e6572000000000000604082015260600190565b60208082526010908201526f14185d5cd8589b194e881c185d5cd95960821b604082015260600190565b6020808252818101527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604082015260600190565b60008682526020868184015285604084015284606084015260a0608084015283518060a0850152825b81811015611c165785810183015185820160c001528201611bfa565b81811115611c27578360c083870101525b50601f01601f19169290920160c001979650505050505050565b604051601f8201601f1916810167ffffffffffffffff81118282101715611c6a57611c6a611cf9565b604052919050565b60008219821115611c8557611c85611ccd565b500190565b600082611c9957611c99611ce3565b500490565b6000600019821415611cb257611cb2611ccd565b5060010190565b600082611cc857611cc8611ce3565b500690565b634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052601260045260246000fd5b634e487b7160e01b600052604160045260246000fd5b6001600160a01b038116811461151d57600080fdfea26469706673582212209b71bb2db4b395d05e605f4c1bdeb3147360e5a8269f1684673c0b517864078e64736f6c63430008020033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "paused()": {
+        "details": "Returns true if the contract is paused, and false otherwise."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 501,
+        "contract": "contracts/DragonDevour.sol:DragonDevour",
+        "label": "_paused",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 586,
+        "contract": "contracts/DragonDevour.sol:DragonDevour",
+        "label": "_status",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 387,
+        "contract": "contracts/DragonDevour.sol:DragonDevour",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_address"
+      },
+      {
+        "astId": 8788,
+        "contract": "contracts/DragonDevour.sol:DragonDevour",
+        "label": "devourDatas",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_uint256,t_struct(DevourData)8783_storage)"
+      },
+      {
+        "astId": 8791,
+        "contract": "contracts/DragonDevour.sol:DragonDevour",
+        "label": "maxLevel",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 8797,
+        "contract": "contracts/DragonDevour.sol:DragonDevour",
+        "label": "dmsFee",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 8800,
+        "contract": "contracts/DragonDevour.sol:DragonDevour",
+        "label": "dmpFee",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 8806,
+        "contract": "contracts/DragonDevour.sol:DragonDevour",
+        "label": "dmsToken",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_contract(IERC20)2652"
+      },
+      {
+        "astId": 8812,
+        "contract": "contracts/DragonDevour.sol:DragonDevour",
+        "label": "dmpToken",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_contract(IERC20)2652"
+      },
+      {
+        "astId": 8818,
+        "contract": "contracts/DragonDevour.sol:DragonDevour",
+        "label": "dragonToken",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_contract(IDragonToken)8728"
+      },
+      {
+        "astId": 8824,
+        "contract": "contracts/DragonDevour.sol:DragonDevour",
+        "label": "burnAccount",
+        "offset": 0,
+        "slot": "10",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_contract(IDragonToken)8728": {
+        "encoding": "inplace",
+        "label": "contract IDragonToken",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IERC20)2652": {
+        "encoding": "inplace",
+        "label": "contract IERC20",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_uint256,t_struct(DevourData)8783_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct DragonDevourBase.DevourData)",
+        "numberOfBytes": "32",
+        "value": "t_struct(DevourData)8783_storage"
+      },
+      "t_struct(DevourData)8783_storage": {
+        "encoding": "inplace",
+        "label": "struct DragonDevourBase.DevourData",
+        "members": [
+          {
+            "astId": 8774,
+            "contract": "contracts/DragonDevour.sol:DragonDevour",
+            "label": "devourDragonId",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 8776,
+            "contract": "contracts/DragonDevour.sol:DragonDevour",
+            "label": "skillId",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 8778,
+            "contract": "contracts/DragonDevour.sol:DragonDevour",
+            "label": "currValue",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 8780,
+            "contract": "contracts/DragonDevour.sol:DragonDevour",
+            "label": "skillValue",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 8782,
+            "contract": "contracts/DragonDevour.sol:DragonDevour",
+            "label": "state",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_bool"
+          }
+        ],
+        "numberOfBytes": "160"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
